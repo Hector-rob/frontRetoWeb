@@ -4,7 +4,7 @@ export default function MenuCuidador() {
     return (
       <main style={{ padding: "1rem 0" }}>
         <h1>Menu Cuidador</h1>
-        <Link to="/agregarCuidador">Registrar cuidador</Link> |{" "}
+        <Link to="/prueba">Realizar Prueba</Link> |{" "}
         
 
       </main>

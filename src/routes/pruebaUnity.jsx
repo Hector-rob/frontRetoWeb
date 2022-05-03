@@ -1,4 +1,5 @@
 import React from "react";
+import {Link } from "react-router-dom";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
@@ -21,6 +22,7 @@ export default function Prueba(){
         }} 
         unityContext={unityContext}
          />
+          <Link to="/menuCuidador">Volver al menú</Link>
      </div>
      );
    
