@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { render } from "react-dom";
+import { 
+  BrowserRouter,
+  Routes,
+  Route, } from "react-router-dom";
+import IniciarSesion from "./routes/iniciarSesion";
+import MenuCuidador from "./routes/menuCuidador";
+import MenuDoctor from "./routes/menuDoctor";
+import Registro from "./routes/registro";
+import RegistroCuidador from "./routes/registroCuidador";
+import RegistroDoc from "./routes/registroDoc";
+import Prueba from "./routes/pruebaUnity"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootElement = document.getElementById("root");
+render(
+<BrowserRouter>
+<Routes>
+<Route> path
+</Route>
+<Route path="/" element={<IniciarSesion />}>
+        <Route
+      path="*"
+      element={
+        <main style={{ padding: "1rem" }}>
+          <p>No se encontró la página</p>
+        </main>
+      }
+    />
+      </Route>
+<Route path="/registro" element={<Registro />}>
+      <Route path="doctor" element={<RegistroDoc />} />
+      <Route path="cuidador" element={<RegistroCuidador />} />
+</Route>
+<Route path="/menuCuidador" element={<MenuCuidador />}>
+</Route>
+<Route path="/menuDoctor" element={<MenuDoctor />}>
+</Route>
+<Route path="/prueba" element={<Prueba />}>
+</Route>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+    </Routes>
+</BrowserRouter>,rootElement);
