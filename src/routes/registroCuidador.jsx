@@ -40,7 +40,7 @@ export default function RegistroCuidador() {
 
   return (
     <div className="App">
-      <h1> REGISTRO DE CUIDADOR </h1>
+      <h1 className="Subtitulos"> REGISTRO DE CUIDADOR </h1>
       <label> Id del cuidador: </label>
        <input type="text" idCuidador="id" onChange= {(e) => {
          setIdCuidador(e.target.value)}}/>
@@ -69,7 +69,14 @@ export default function RegistroCuidador() {
        <input type="text" contraseña="contraseña" onChange= {(e) => {
          setContraseña(e.target.value)}}/>
 
+         <br></br>
+
        <button onClick={submitCuidador}> Submit </button>
+
+       <br></br>
+       <br></br>
+
+       <h1 className="Subtitulos"> Cuidadores registrados </h1>
 
        {idCuidadorLista.map((val)=> {
          return <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} 

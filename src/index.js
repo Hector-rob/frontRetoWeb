@@ -9,7 +9,8 @@ import MenuDoctor from "./routes/menuDoctor";
 import Registro from "./routes/registro";
 import RegistroCuidador from "./routes/registroCuidador";
 import RegistroDoc from "./routes/registroDoc";
-import Prueba from "./routes/pruebaUnity"
+import RegistroPaciente from "./routes/registroPaciente";
+//import Prueba from "./routes/pruebaUnity"
 
 const rootElement = document.getElementById("root");
 render(
@@ -30,13 +31,15 @@ render(
 <Route path="/registro" element={<Registro />}>
       <Route path="doctor" element={<RegistroDoc />} />
       <Route path="cuidador" element={<RegistroCuidador />} />
+      <Route path="paciente" element={<RegistroPaciente />} />
 </Route>
 <Route path="/menuCuidador" element={<MenuCuidador />}>
 </Route>
 <Route path="/menuDoctor" element={<MenuDoctor />}>
 </Route>
-<Route path="/prueba" element={<Prueba />}>
-</Route>
+
+
+
 
 
 

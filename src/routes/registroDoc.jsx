@@ -42,7 +42,7 @@ export default function RegistroDoc() {
  
   return (
     <div className="App">
-      <h1> REGISTRO DE DOCTORES </h1>
+      <h1 className="Subtitulos"> REGISTRO DE DOCTORES </h1>
        <label> Id del doctor: </label>
        <input type="text" idDoctor="id" onChange= {(e) => {
          setIdDoctor(e.target.value)}}/>
@@ -75,13 +75,14 @@ export default function RegistroDoc() {
        <input type="text" contraseña="contraseña" onChange= {(e) => {
          setContraseñaD(e.target.value)}}/>
 
-        
+        <br></br>
 
        <button onClick={submmitDoctor}> Submit </button>
 
        <br></br>
+       <br></br>
 
-
+       <h1 className="Subtitulos"> Doctores registrados </h1>
 
        {doctorLista.map((val)=> {
         
