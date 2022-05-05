@@ -51,18 +51,14 @@ export default function RegistroDoc() {
           paddingBottom: "1rem",
         }}
       >
+
+      <body><Link to="/registro">| Regresar a registro |</Link></body>
          
       </nav>
       <Outlet />
       <br></br>
 
       <h1 className="Subtitulos"> REGISTRO DE DOCTORES </h1>
-       <label> Id del doctor: </label>
-       <input type="text" idDoctor="id" onChange= {(e) => {
-         setIdDoctor(e.target.value)}}/>
-
-  
-
        <label> Nombre del doctor: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
          setNombreDoctor(e.target.value)}}/>

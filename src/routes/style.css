@@ -70,11 +70,26 @@
       background-color: lightgreen;
     }
 
+    .buttonError {
+      font-family: 'Roboto', sans-serif;
+      background-color: red; /* Green */
+      border: red;
+      border-radius: 2px;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      margin: 0 auto;
+      font-size: 16px;
+      }
+
+
     .buttonMenu {
       font-family: Arial, Helvetica, sans-serif;
       background-color: rgba(0, 128, 0, 0.411); 
       border: none;
-      color: white;
+      color: black;
       padding: 55px 52px;
       text-align: center;
       text-decoration: none;
@@ -156,6 +171,24 @@ input {
   border-radius: 0.2rem;
   background-color: rgb(255, 255, 255);
   border: 2px solid black ;
+  border-radius: 2px;
+  width: 20%;
+  display: block;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.inputError {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.2rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid red ;
   border-radius: 2px;
   width: 20%;
   display: block;

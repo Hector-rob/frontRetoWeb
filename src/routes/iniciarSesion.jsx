@@ -4,12 +4,13 @@ import Logo from "./logo.png";
 import React, {useState, useEffect} from "react";
 import Axios from "axios";
 
-export default function Registro() {
+export default function Registro(){
 
   const [correoRegistro, setCorreoRegistroDoc] = useState("");
   const [contraseñaRegistro, setContraseñaRegistroDoc] = useState("");
   const [listaCorreoDoc, setlistaCorreoDoc] = useState([]);
   const [listaCorreoCui, setlistaCorreoCui] = useState([]);
+
 
   useEffect(() => {
     Axios.get("http://localhost:3003/credencialesDoctores").then((response) => {
@@ -23,8 +24,6 @@ export default function Registro() {
     });
 
   }, []);
-
-
 
 
   return (
@@ -59,16 +58,17 @@ export default function Registro() {
 
        <br></br>
 
+     
 
        {listaCorreoDoc.map((val)=> {
          if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
-          return <button> <Link to="/menuDoctor">Iniciar Sesión</Link> {" "} </button>
+          return <Link to="/menuDoctor"> <button> Iniciar Sesión </button> </Link>
          } 
        })}
 
       {listaCorreoCui.map((val)=> {
          if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
-          return <button> <Link to="/menuCuidador">Iniciar Sesión</Link> {" "} </button>
+          return <Link to="/menuCuidador"> <button> Iniciar Sesión </button> </Link>
          
          }
        })}
@@ -78,7 +78,9 @@ export default function Registro() {
 
        <center>¿No está registrado?</center>
        <br></br>
-        <button>  <Link to="/registro">Registrarse</Link> {" "} </button>
+        <Link to="/registro"> <button> Registrarse </button> </Link> {" "}
+
+        <br></br>
 
         
 

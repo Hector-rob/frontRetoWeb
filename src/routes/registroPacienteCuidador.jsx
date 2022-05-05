@@ -69,7 +69,7 @@ export default function RegistroPacienteCuidador() {
   }, []);
 
 
-  class App extends React.Component{
+  class Botoncito extends React.Component{
     state = {
       showMessage: false
     }
@@ -83,7 +83,7 @@ export default function RegistroPacienteCuidador() {
         return (<div> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} {val.apellidosCuidador}
         </div>)
         })}
-</p>}
+        </p>}
         <button onClick={this.onButtonClickHandler}>Ver cuidadores</button>
       </div>);
   
@@ -114,8 +114,6 @@ export default function RegistroPacienteCuidador() {
 
       <h1 className="Titulos"> REGISTRO DE PACIENTE </h1>
   
-      
-
        <label> Nombre del paciente: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
          setNombrePaciente(e.target.value)}}/>
@@ -130,7 +128,7 @@ export default function RegistroPacienteCuidador() {
 
         <label> ID del responsable: </label>  
        <input type="text" responsable="responsable" onChange= {(e) => {
-         setResponsable(e.target.value)}}/> <p><App></App> </p>
+         setResponsable(e.target.value)}}/> <p><Botoncito></Botoncito> </p>
        
 
         <label> Padecimientos del paciente: </label>
@@ -141,11 +139,11 @@ export default function RegistroPacienteCuidador() {
        <input type="text" telefonoContacto="teléfono" onChange= {(e) => {
          setTelefonoContacto(e.target.value)}}/>
 
-        <label> Sexo: </label>
+        <label> Sexo ('F' para femenino, 'M' para masculino): </label>
        <input type="text" sexo="sexo" onChange= {(e) => {
          setSexo(e.target.value)}}/>
 
-        <label> Fecha de nacimiento (YYYY-MM-DD): </label>
+        <label> Fecha de nacimiento (AAAA-MM-DD): </label>
        <input type="text" fechaNacimiento="fecha de nacimiento" onChange= {(e) => {
          setFechaNacimiento(e.target.value)}}/>
 

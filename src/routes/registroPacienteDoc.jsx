@@ -140,11 +140,11 @@ export default function RegistroPacienteDoc() {
        <input type="text" telefonoContacto="teléfono" onChange= {(e) => {
          setTelefonoContacto(e.target.value)}}/>
 
-        <label> Sexo: </label>
+        <label> Sexo ('F' para femenino, 'M' para masculino): </label>
        <input type="text" sexo="sexo" onChange= {(e) => {
          setSexo(e.target.value)}}/>
 
-        <label> Fecha de nacimiento (YYYY-MM-DD): </label>
+        <label> Fecha de nacimiento (AAAA-MM-DD): </label>
        <input type="text" fechaNacimiento="fecha de nacimiento" onChange= {(e) => {
          setFechaNacimiento(e.target.value)}}/>
 

@@ -51,6 +51,8 @@ export default function RegistroCuidador() {
           paddingBottom: "1rem",
         }}
       >
+
+      <body> <Link to="/registro">| Regresar a registro |</Link> </body>
          
       </nav>
       <Outlet />
@@ -59,10 +61,7 @@ export default function RegistroCuidador() {
 
 
       <h1 className="Subtitulos"> REGISTRO DE CUIDADOR </h1>
-      <label> Id del cuidador: </label>
-       <input type="text" idCuidador="id" onChange= {(e) => {
-         setIdCuidador(e.target.value)}}/>
-
+      
        <label> Nombre del cuidador: </label>
        <input type="text" nombreCuidador="nombre" onChange= {(e) => {
          setNombreCuidador(e.target.value)}}/>

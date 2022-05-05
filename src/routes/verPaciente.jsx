@@ -20,6 +20,8 @@ export default function RegistroPaciente() {
 
   const [buscando, setBuscando] = useState("");
 
+  const [idCuidadorLista, setIdCuidadorLista] = useState([]);
+
 
   const [pacienteLista, setPacienteLista] = useState([]);
 
@@ -51,6 +53,14 @@ export default function RegistroPaciente() {
   }, []);
   
  
+  useEffect(() => {
+    Axios.get("http://localhost:3003/verCuidadores").then((response) => {
+      console.log(response.data);
+      setIdCuidadorLista(response.data);
+    });
+
+  }, []);
+
 
 
   return (
@@ -82,6 +92,7 @@ export default function RegistroPaciente() {
 
         <br></br>
         <button> Buscar </button>
+
         
 
         {pacienteLista.map((val)=> {
@@ -94,12 +105,21 @@ export default function RegistroPaciente() {
             if(val.nombrePaciente === buscando || val.apellidoP === buscando || val.apellidoM === buscando){
                 return <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
                 <p> ID del paciente: {val.idPaciente}</p>
-                <p> RESPONSABLE QUE SE VEA COOL: {val.responsable}</p>
                 <p> Teléfono de contacto: {val.telefonoContacto}</p>
                 <p> Padecimientos: {val.padecimientos}</p>
                 <p> Sexo: {val.sexo}</p>
                 <p> Fecha de nacimiento: {val.fechaNacimiento}</p>
                 <p> Queja de memoria: {val.quejaMemoria}</p>
+
+                {idCuidadorLista.map((val2)=> {
+                  if (val.responsable == val2.idCuidador){
+                    return <p> ID de responsable: {val.responsable} | Nombre de responsable: {val2.nombreCuidador} {val2.apellidosCuidador}</p>
+                  }
+                 })}
+
+
+
+
                  </h3>
             }
             else {
