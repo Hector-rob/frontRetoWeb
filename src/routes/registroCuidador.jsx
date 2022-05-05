@@ -1,6 +1,7 @@
-import Axios from "axios";
+import { Outlet, Link } from "react-router-dom";
+import Logo from "./logo.png";
 import React, {useState, useEffect} from "react";
-import {Link } from "react-router-dom";
+import Axios from "axios";
 
 
 export default function RegistroCuidador() {
@@ -40,6 +41,23 @@ export default function RegistroCuidador() {
 
   return (
     <div className="App">
+
+      <br></br>
+      <center> <img src= {Logo}></img>  </center>
+      <br></br>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+         
+      </nav>
+      <Outlet />
+      <br></br>
+
+
+
       <h1 className="Subtitulos"> REGISTRO DE CUIDADOR </h1>
       <label> Id del cuidador: </label>
        <input type="text" idCuidador="id" onChange= {(e) => {
@@ -74,16 +92,8 @@ export default function RegistroCuidador() {
        <button onClick={submitCuidador}> Submit </button>
 
        <br></br>
-       <br></br>
-
-       <h1 className="Subtitulos"> Cuidadores registrados </h1>
-
-       {idCuidadorLista.map((val)=> {
-         return <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} 
-         | Apellidos: {val.apellidosCuidador} | Teléfono: {val.telefonoCuidador} | Relación con paciente: {val.relacionPaciente}
-         | Correo: {val.correo} | contraseña: {val.contraseña}</h3>
-       })}
-        <Link to="/menuCuidador">Iniciar Sesion</Link> |{" "}
+     
+       <Link to="iniciarSesion"> <button> Iniciar Sesión </button> </Link> 
     </div>
     
   );

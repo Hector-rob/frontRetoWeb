@@ -1,9 +1,14 @@
 import Axios from "axios";
 import React, {useState, useEffect} from "react";
-import {Link } from "react-router-dom";
+import { Outlet, Link, matchPath } from "react-router-dom";
+import './style.css';
+import Logo from "./logo.png";
 
 
-export default function RegistroPaciente() {
+
+
+
+export default function RegistroPacienteCuidador() {
 
   // Para pacientes
   const [idPaciente, setIdPaciente] = useState("");
@@ -20,13 +25,15 @@ export default function RegistroPaciente() {
 
   const [pacienteLista, setPacienteLista] = useState([]);
 
+  
+
   const submitPaciente = () => {
     Axios.post("http://localhost:3003/agregarPaciente", {
       idPacientePaciente:idPaciente, 
       responsablePaciente: responsable, 
       nombrePacientePaciente: nombrePaciente, 
       apellidoPPaciente: apellidoP,
-      setApellidoMPaciente: apellidoM,
+      apellidoMPaciente: apellidoM,
       padecimientosPaciente: padecimientos,
       telefonoContactoPaciente: telefonoContacto,
       sexoPaciente: sexo,
@@ -34,7 +41,7 @@ export default function RegistroPaciente() {
       quejaMemoriaPaciente: quejaMemoria
       
       }).then(()=>{
-        alert("successful insert");
+        window.alert("Paciente registrado");
         
       })
   };
@@ -47,15 +54,67 @@ export default function RegistroPaciente() {
 
   }, []);
   
- 
+
+
+
+
+  const [idCuidadorLista, setIdCuidadorLista] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3003/verCuidadores").then((response) => {
+      console.log(response.data);
+      setIdCuidadorLista(response.data);
+    });
+
+  }, []);
+
+
+  class App extends React.Component{
+    state = {
+      showMessage: false
+    }
+    onButtonClickHandler = () => {
+     this.setState({showMessage: true});
+    };
+  
+    render(){ 
+      return(<div className="App">
+       {this.state.showMessage && <p>{idCuidadorLista.map((val)=> {
+        return (<div> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} {val.apellidosCuidador}
+        </div>)
+        })}
+</p>}
+        <button onClick={this.onButtonClickHandler}>Ver cuidadores</button>
+      </div>);
+  
+    }
+  }
+
 
 
   return (
-    <div className="App">
-      <h1 className="Subtitulos"> REGISTRO DE PACIENTE </h1>
-       <label> Id del Paciente: </label>
-       <input type="text" idPaciente="id" onChange= {(e) => {
-         setIdPaciente(e.target.value)}}/>
+    <div>
+      <br></br>
+      <center> <img src= {Logo}></img>  </center>
+      <br></br>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+
+      <Link to="/menuCuidador">| Regresar a menú |</Link>
+     
+         
+      </nav>
+      <Outlet />
+      <br></br>
+
+
+      <h1 className="Titulos"> REGISTRO DE PACIENTE </h1>
+  
+      
 
        <label> Nombre del paciente: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
@@ -69,9 +128,10 @@ export default function RegistroPaciente() {
        <input type="text" apellidoM="apellido materno" onChange= {(e) => {
          setApellidoM(e.target.value)}}/>
 
-        <label> Responsable: </label>
+        <label> ID del responsable: </label>  
        <input type="text" responsable="responsable" onChange= {(e) => {
-         setResponsable(e.target.value)}}/>
+         setResponsable(e.target.value)}}/> <p><App></App> </p>
+       
 
         <label> Padecimientos del paciente: </label>
        <input type="text" padecimientos="padecimientos" onChange= {(e) => {
@@ -85,45 +145,21 @@ export default function RegistroPaciente() {
        <input type="text" sexo="sexo" onChange= {(e) => {
          setSexo(e.target.value)}}/>
 
-        <label> Fecha de nacimiento: </label>
+        <label> Fecha de nacimiento (YYYY-MM-DD): </label>
        <input type="text" fechaNacimiento="fecha de nacimiento" onChange= {(e) => {
          setFechaNacimiento(e.target.value)}}/>
 
-        <label> Queja de memoria: </label>
+        <label> Queja de memoria (1 para Sí, 0 para No): </label>
        <input type="text" quejaMemoria="queja de memoria" onChange= {(e) => {
          setQuejaMemoria(e.target.value)}}/>
 
         <br></br>
 
-       <button onClick={submitPaciente}> Submit </button>
+       <button onClick={submitPaciente} > Submit </button>
 
-       <br></br>
-       <br></br>
-       
-
-       <h1 className="Subtitulos"> Pacientes registrados </h1>
+ 
 
 
-
-       {pacienteLista.map((val)=> {
-         
-        if (val.quejaMemoria == 1) {
-          val.quejaMemoria = "Sí";
-        }
-        else if (val.quejaMemoria == 0) {
-          val.quejaMemoria = "No";
-        }
-
-         return <h3> ID del paciente: {val.idPaciente} | Nombre del paciente: {val.nombrePaciente} 
-         | Apellidos: {val.apellidoP}  {val.apellidoM} | Padecimientos: {val.padecimientos} | Teléfono de contacto: {val.telefonoContacto} | Sexo: {val.sexo}
-         | Fecha de nacimiento: {val.fechaNacimiento} | Queja de memoria: {val.quejaMemoria}</h3>
-         
-       })}
-
-       
-
-
-        
 
 
     </div>

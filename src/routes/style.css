@@ -36,23 +36,25 @@
       transform: rotate(360deg);
     }
   }
+
+
   
   .Titulos {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 50px;
     color: green; 
     text-align: center;
   }
   
   .Subtitulos {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 35px;
     color: green; 
     text-align: center;
   }
   
   button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: green; /* Green */
     border: none;
     color: white;
@@ -63,6 +65,36 @@
     margin: 0 auto;
     font-size: 16px;
     }
+
+    button:focus{
+      background-color: lightgreen;
+    }
+
+    .buttonMenu {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgba(0, 128, 0, 0.411); 
+      border: none;
+      color: white;
+      padding: 55px 52px;
+      text-align: center;
+      text-decoration: none;
+      display:block;
+      margin: 0 auto;
+      font-size: 16px;
+      }
+
+      .buttonCerrarSesion {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightcoral;
+        border: none;
+        color: white;
+        padding: 55px 52px;
+        text-align: center;
+        text-decoration: none;
+        display:block;
+        margin: 0 auto;
+        font-size: 16px;
+        }
 
     
   
@@ -76,7 +108,7 @@
   
   
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: black; 
     text-align: left;
@@ -86,7 +118,7 @@
   
   
   h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 30px;
     color: green; 
     text-align: center;
@@ -95,7 +127,7 @@
   }
 
   h3 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: black; 
     text-align: justify;
@@ -116,6 +148,24 @@ label {
 }
 
 input {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.2rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black ;
+  border-radius: 2px;
+  width: 20%;
+  display: block;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px;
+}
+
+option {
   font-family: 'Roboto', sans-serif;
   color: black;
   font-size: 1.2rem;

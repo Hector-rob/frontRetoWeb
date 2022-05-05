@@ -9,12 +9,12 @@ const unityContext = new UnityContext({
   codeUrl: "build/UnityWebReto.wasm",
 });
 
-export default function Prueba(){
+export default function PruebaCuidador(){
     return( 
     <div>
         <Unity style={{
             width: "100%",
-            height: "200%",
+            height: "110%",
             justifySelf: "center",
             alignSelf: "center",
             display : "inline-block"

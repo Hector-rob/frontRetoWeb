@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, {useState, useEffect} from "react";
-import {Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
+import Logo from "./logo.png";
 
 
 export default function RegistroDoc() {
@@ -39,15 +40,28 @@ export default function RegistroDoc() {
     }, []);
  
   return (
+    
     <div className="App">
+      <br></br>
+      <center> <img src= {Logo}></img>  </center>
+      <br></br>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+         
+      </nav>
+      <Outlet />
+      <br></br>
+
       <h1 className="Subtitulos"> REGISTRO DE DOCTORES </h1>
        <label> Id del doctor: </label>
        <input type="text" idDoctor="id" onChange= {(e) => {
          setIdDoctor(e.target.value)}}/>
 
-        <label> Id de los pacientes asignados: </label>
-       <input type="text" idPacientes="id" onChange= {(e) => {
-         setIdPacientes(e.target.value)}}/>
+  
 
        <label> Nombre del doctor: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
@@ -74,18 +88,9 @@ export default function RegistroDoc() {
        <button onClick={submmitDoctor}> Submit </button>
 
        <br></br>
-       <br></br>
+       <Link to="/"> <button> Iniciar Sesión </button> </Link> 
 
-       <h1 className="Subtitulos"> Doctores registrados </h1>
-
-       {doctorLista.map((val)=> {
-        
-         return <h3> ID del doctor: {val.idDoctor} | Nombre del doctor: {val.nombreDoctor} | Id de pacientes asignados: {val.idPacientes}
-         | Apellidos: {val.apellidosDoctor}  | Organización: {val.organizacion}  | Correo doctor: {val.correo}
-         | Contraseña: {val.contraseña} </h3>
-         
-       })}
-        <Link to="/menuDoctor">Iniciar Sesion</Link> |{" "}
+       
     </div>
   );
 }

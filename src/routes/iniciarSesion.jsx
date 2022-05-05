@@ -40,10 +40,8 @@ export default function Registro() {
           borderBottom: "solid 1px",
           paddingBottom: "1rem",
         }}
-      >
-        <Link to="/registro">Registro</Link> |{" "}
-        
-         {/*<Link to="/expenses">Expenses</Link>*/} 
+      >    
+         
       </nav>
 
       <p className="Titulos">Iniciar Sesión</p>
@@ -61,8 +59,6 @@ export default function Registro() {
 
        <br></br>
 
-       aqui está guardado: {correoRegistro} y {contraseñaRegistro}
-
 
        {listaCorreoDoc.map((val)=> {
          if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
@@ -73,6 +69,7 @@ export default function Registro() {
       {listaCorreoCui.map((val)=> {
          if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
           return <button> <Link to="/menuCuidador">Iniciar Sesión</Link> {" "} </button>
+         
          }
        })}
 

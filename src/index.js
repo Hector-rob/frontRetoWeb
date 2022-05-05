@@ -9,8 +9,15 @@ import MenuDoctor from "./routes/menuDoctor";
 import Registro from "./routes/registro";
 import RegistroCuidador from "./routes/registroCuidador";
 import RegistroDoc from "./routes/registroDoc";
-import RegistroPaciente from "./routes/registroPaciente";
-import Prueba from "./routes/pruebaUnity"
+import RegistroPaciente from "./routes/registroPacienteCuidador";
+import RegistroPacienteDoc from "./routes/registroPacienteDoc";
+import VerPacientes from "./routes/verPaciente";
+import VerCuidadores from "./routes/verCuidadores";
+import RegistroPacienteCuidador from "./routes/registroPacienteCuidador";
+import PruebaDoctor from "./routes/pruebaUnityDoctor";
+import PruebaCuidador from "./routes/pruebaUnityCuidador";
+
+//import Prueba from "./routes/pruebaUnity"
 
 const rootElement = document.getElementById("root");
 render(
@@ -28,24 +35,42 @@ render(
       }
     />
       </Route>
+
+
 <Route path="/registro" element={<Registro />}>
-      <Route path="doctor" element={<RegistroDoc />} />
-      <Route path="cuidador" element={<RegistroCuidador />} />
-      <Route path="paciente" element={<RegistroPaciente />} />
 </Route>
-<Route path="/menuCuidador" element={<MenuCuidador />}>
+
+<Route path="/registro/doctor" element={<RegistroDoc />}>
 </Route>
+
+<Route path="/registro/cuidador" element={<RegistroCuidador />}>
+</Route>
+
+<Route path="/menuCuidador" element={<MenuCuidador />}>      
+</Route>
+
+<Route path="/menuCuidador/registrarPaciente" element={<RegistroPacienteCuidador />}>
+</Route>
+
+<Route path="/pruebaCuidador" element={<PruebaCuidador />}>      
+</Route>
+
+<Route path="/pruebaDoctor" element={<PruebaDoctor />}>      
+</Route>
+
 <Route path="/menuDoctor" element={<MenuDoctor />}>
 </Route>
-<Route path="/prueba" element={<Prueba />}>
-  
+
+<Route path="/registro/doctor" element={<RegistroDoc />}>
 </Route>
-
-
-
-
-
-
+<Route path="/registro/cuidador" element={<RegistroCuidador />}>
+</Route>
+<Route path="/menuDoctor/registrarPaciente" element={<RegistroPacienteDoc />}>
+</Route>
+<Route path="/menuDoctor/verPacientes" element={<VerPacientes />}>
+</Route>
+<Route path="/menuDoctor/verCuidadores" element={<VerCuidadores />}>
+</Route>
 
     </Routes>
 </BrowserRouter>,rootElement);
