@@ -10,7 +10,7 @@ import Registro from "./routes/registro";
 import RegistroCuidador from "./routes/registroCuidador";
 import RegistroDoc from "./routes/registroDoc";
 import RegistroPaciente from "./routes/registroPaciente";
-//import Prueba from "./routes/pruebaUnity"
+import Prueba from "./routes/pruebaUnity"
 
 const rootElement = document.getElementById("root");
 render(
@@ -37,6 +37,10 @@ render(
 </Route>
 <Route path="/menuDoctor" element={<MenuDoctor />}>
 </Route>
+<Route path="/prueba" element={<Prueba />}>
+  
+</Route>
+
 
 
 

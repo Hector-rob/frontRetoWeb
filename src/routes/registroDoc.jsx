@@ -9,7 +9,6 @@ export default function RegistroDoc() {
     const [nombreDoctor, setNombreDoctor] = useState("");
     const [apellidosDoctor, setApellidosDoctor] = useState("");
     const [organizacion, setOrganizacion] = useState("");
-    const [numPacientesAsignados, setNumPacientes] = useState("");
     const [correo, setCorreoD] = useState("");
     const [contraseña, setContraseñaD] = useState("");
   
@@ -22,7 +21,6 @@ export default function RegistroDoc() {
         nombreDoctorDoctor: nombreDoctor, 
         apellidosDoctorDoctor: apellidosDoctor,
         organizacionDoctor: organizacion,
-        numPacientesDoctor: numPacientesAsignados,
         correoDoctor: correo,
         contraseñaDoctor: contraseña
         
@@ -63,10 +61,6 @@ export default function RegistroDoc() {
        <input type="text" organizacion="organización" onChange= {(e) => {
          setOrganizacion(e.target.value)}}/>
 
-        <label> Número de pacientes asignados: </label>
-       <input type="text" numPacientesAsignados="num de pacientes" onChange= {(e) => {
-         setNumPacientes(e.target.value)}}/>
-
         <label> Correo del doctor: </label>
        <input type="text" correo="correo" onChange= {(e) => {
          setCorreoD(e.target.value)}}/>
@@ -87,7 +81,7 @@ export default function RegistroDoc() {
        {doctorLista.map((val)=> {
         
          return <h3> ID del doctor: {val.idDoctor} | Nombre del doctor: {val.nombreDoctor} | Id de pacientes asignados: {val.idPacientes}
-         | Apellidos: {val.apellidosDoctor}  | Organización: {val.organizacion} | Número de pacientes asignados: {val.numPacientesAsignados} | Correo doctor: {val.correo}
+         | Apellidos: {val.apellidosDoctor}  | Organización: {val.organizacion}  | Correo doctor: {val.correo}
          | Contraseña: {val.contraseña} </h3>
          
        })}

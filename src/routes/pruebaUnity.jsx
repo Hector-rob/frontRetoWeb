@@ -14,7 +14,7 @@ export default function Prueba(){
     <div>
         <Unity style={{
             width: "100%",
-            height: "110%",
+            height: "200%",
             justifySelf: "center",
             alignSelf: "center",
             display : "inline-block"
