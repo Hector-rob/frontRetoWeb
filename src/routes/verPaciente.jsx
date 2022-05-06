@@ -81,7 +81,8 @@ export default function RegistroPaciente() {
             else if (val.quejaMemoria === 0){
                 val.quejaMemoria = "No";
             }
-            if(val.nombrePaciente.includes(buscando) || val.apellidoP.includes(buscando) || val.apellidoM.includes(buscando) ){
+            if(val.nombrePaciente != null && val.apellidoP != null && val.apellidoM != null){
+            if(val.nombrePaciente.includes(buscando) || val.apellidoP.includes(buscando) || val.apellidoM.includes(buscando)){
                 return <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
                 <p> ID del paciente: {val.idPaciente}</p>
                 <p> Teléfono de contacto: {val.telefonoContacto}</p>
@@ -104,6 +105,7 @@ export default function RegistroPaciente() {
             else {
                 
             }
+          }
         })}
         </p>}
         <button onClick={this.onButtonClickHandler}>Buscar paciente</button>
