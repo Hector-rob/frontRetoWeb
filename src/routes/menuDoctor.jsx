@@ -36,8 +36,16 @@ export default function MenuDoctor() {
       <Link to="/menuDoctor/verCuidadores"> <button className="buttonMenu"> Ver cuidadores </button> </Link> {" "}
       <br></br>
 
+      <Link to="/menuDoctor/verDoctores"> <button className="buttonMenu"> Ver doctores </button> </Link> {" "}
+      <br></br>
+
       <Link to="/pruebaDoctor"> <button className="buttonMenu"> Realizar prueba </button> </Link> {" "}
       <br></br>
+
+      
+
+
+      
 
       <Link to="/"> <button className="buttonMenuCerrarSesion"> Cerrar sesión </button> </Link> {" "}
 

@@ -60,7 +60,8 @@ export default function RegistroCuidador() {
           paddingBottom: "1rem",
         }}
       >
-      <body><Link to="/menuDoctor">| Regresar a menú |</Link>  </body>
+      <body> <Link to="/menuDoctor"> <button className="izquierda"> Volver a menú </button> </Link> </body>
+
       </nav>
 
       <Outlet />

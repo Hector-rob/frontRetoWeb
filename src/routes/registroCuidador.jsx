@@ -52,7 +52,8 @@ export default function RegistroCuidador() {
         }}
       >
 
-      <body> <Link to="/registro">| Regresar a registro |</Link> </body>
+      <body> <Link to="/registro"> <button className="izquierda"> Volver a registro </button> </Link> </body>
+
          
       </nav>
       <Outlet />

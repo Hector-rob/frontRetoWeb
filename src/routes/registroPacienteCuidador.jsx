@@ -4,10 +4,6 @@ import { Outlet, Link, matchPath } from "react-router-dom";
 import './style.css';
 import Logo from "./logo.png";
 
-
-
-
-
 export default function RegistroPacienteCuidador() {
 
   // Para pacientes
@@ -104,7 +100,8 @@ export default function RegistroPacienteCuidador() {
         }}
       >
 
-      <Link to="/menuCuidador">| Regresar a menú |</Link>
+      <body> <Link to="/menuCuidador"> <button className="izquierda"> Volver a menú </button> </Link> </body>
+
      
          
       </nav>

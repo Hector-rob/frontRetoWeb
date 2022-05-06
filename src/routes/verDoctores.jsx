@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 import Logo from "./logo.png";
 
 
-export default function RegistroDoc() {
+export default function VerDoctores() {
     const [idDoctor, setIdDoctor] = useState("");
     const [idPacientes, setIdPacientes] = useState("");
     const [nombreDoctor, setNombreDoctor] = useState("");
@@ -51,22 +51,23 @@ export default function RegistroDoc() {
           paddingBottom: "1rem",
         }}
       >
-         
+    <body> <Link to="/menuDoctor"> <button className="izquierda"> Volver a menú </button> </Link> </body>
+
       </nav>
       <Outlet />
       <br></br>
 
 
        <h1 className="Titulos"> Doctores registrados </h1>
+       <br />
+
 
        {doctorLista.map((val)=> {
         
-         return <h3> ID del doctor: {val.idDoctor} | Nombre del doctor: {val.nombreDoctor} | Id de pacientes asignados: {val.idPacientes}
-         | Apellidos: {val.apellidosDoctor}  | Organización: {val.organizacion}  | Correo doctor: {val.correo}
-         | Contraseña: {val.contraseña} </h3>
+         return <h3> ID del doctor: {val.idDoctor} | Nombre del doctor: {val.nombreDoctor} | Apellidos: {val.apellidosDoctor}  | Organización: {val.organizacion} </h3>
          
        })}
-        <button> <Link to="/menuDoctor">Iniciar Sesion</Link> {" "} </button>
+       <br />
     </div>
   );
 }

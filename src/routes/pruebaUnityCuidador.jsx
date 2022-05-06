@@ -87,7 +87,8 @@ export default function PruebaCuidador(){
         }}
       >
 
-      <Link to="/menuCuidador">| Regresar a menú |</Link>
+      <body> <Link to="/menuCuidador"> <button className="izquierda"> Volver a menú </button> </Link> </body>
+
      
          
       </nav>

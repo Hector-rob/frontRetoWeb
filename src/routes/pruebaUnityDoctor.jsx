@@ -123,7 +123,8 @@ export default function PruebaDoctor(){
         }}
       >
 
-      <Link to="/menuDoctor">| Regresar a menú |</Link>
+      <body> <Link to="/menuDoctor"> <button className="izquierda"> Volver a menú </button> </Link> </body>
+
      
          
       </nav>

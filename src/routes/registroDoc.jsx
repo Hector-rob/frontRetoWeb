@@ -52,10 +52,11 @@ export default function RegistroDoc() {
         }}
       >
 
-      <body><Link to="/registro"> Regresar a registro</Link></body>
+     
+<body> <Link to="/registro"> <button className="izquierda"> Volver a registro </button> </Link> </body>
          
       </nav>
-      <Outlet />
+      <Outlet /> 
       <br></br>
 
       <h1 className="Subtitulos"> REGISTRO DE DOCTORES </h1>
