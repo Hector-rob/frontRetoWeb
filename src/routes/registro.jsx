@@ -1,9 +1,14 @@
+import React, {useState, useEffect} from "react";
 import { Outlet, Link } from "react-router-dom";
 import Logo from "./logo.png";
 
 
 
 export default function Registro() {
+
+ 
+
+
   return (
     
     <div>
@@ -22,15 +27,17 @@ export default function Registro() {
       ></nav>
       <br></br>
 
-        <h1 className="Titulos">Registrarse </h1>
+        <h1 className="Titulos">REGISTRO </h1>
       
         <br></br>
+
+        <center> 
         
         <Link to="/registro/doctor"> <button className="buttonMenu"> Registrarse como doctor </button> </Link> {" "}
-        <br></br>
-
+       
         <Link to="/registro/cuidador"> <button className="buttonMenu"> Registrarse como cuidador </button> </Link> {" "}
-        
+        </center>
+
         <br></br>
         <Link to="/"> <button className="buttonMenuOtro"> Ya tengo una cuenta </button> </Link> {" "}
 

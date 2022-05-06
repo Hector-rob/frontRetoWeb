@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 import Axios from "axios";
 
 
-export default function RegistroCuidador() {
+export default function VerCuidadores() {
   const [idCuidador, setIdCuidador] = useState("");
   const [nombreCuidador, setNombreCuidador] = useState("");
   const [apellidosCuidador, setApellidosCuidador] = useState("");

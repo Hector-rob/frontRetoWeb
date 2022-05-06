@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 import Axios from "axios";
 
 
-export default function RegistroPaciente() {
+export default function VerPacientes() {
 
   // Para pacientes
   const [idPaciente, setIdPaciente] = useState("");

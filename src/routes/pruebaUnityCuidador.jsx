@@ -27,6 +27,8 @@ export default function PruebaCuidador(){
   const [buscando, setBuscando] = useState("");
   const [idCuidadorBuscando, setIdCuidadorBuscando] = useState("");
 
+  var correoValido = false;
+
 
   const [idCuidadorLista, setIdCuidadorLista] = useState([]);
   const [pacienteLista, setPacienteLista] = useState([]);
@@ -88,7 +90,6 @@ export default function PruebaCuidador(){
       >
 
       <body> <Link to="/menuCuidador"> <button className="izquierda"> Volver a menú </button> </Link> </body>
-
      
          
       </nav>
@@ -108,22 +109,39 @@ export default function PruebaCuidador(){
         unityContext={unityContext}
          />
 
+
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+     
+      </nav>
+
+      <Outlet />
+
         
 
          <div>
+           <br></br>
 
          <h1 className="Titulos"> REGISTRAR PRUEBA </h1>
 
-         <label> Ingrese su correo: </label>
+         <label>No puede dejar ningún campo vacío (Excepto Comentarios extra)</label>
+
+         <label> Ingrese su correo: (Debe ser su correo registrado) </label>
         <input type="text" buscar="buscar" onChange= {(e) => {
          setBuscando(e.target.value)}}/>
          {idCuidadorLista.map((val)=> {
           var id = 0;
            if (buscando === val.correo){
              id = val.idCuidador;
-            return <div> <p> <center> Su ID del cuidador es: {id }</center> </p>
+             correoValido = true;
+            return <div> 
             <label> ID de cuidador: </label>
             <input type="text" value = {id} idcuidador="dcuidador" onChange= {(e) => {
+              
               setAplicadorCuidador(id)}}/>
 
 
@@ -147,16 +165,11 @@ export default function PruebaCuidador(){
           
 
 
-         
-
-      
-        
-
          <label> Fecha de prueba (AAAA-MM-DD): </label>
        <input type="text" fecha="fecha" onChange= {(e) => {
          setFechaPrueba(e.target.value)}}/>
 
-        <label> Puntaje de prueba obtenido: </label>
+        <label> Puntaje de prueba obtenido: (No puede ser menor que 0 o mayor a 10) </label>
        <input type="text" puntaje="puntaje" onChange= {(e) => {
          setPuntajePrueba(e.target.value)}}/>
 
@@ -166,7 +179,7 @@ export default function PruebaCuidador(){
 
         <br></br>
   
-        <Link to="/menuCuidador"> <button onClick={submitPrueba}> Registrar prueba  </button> </Link> 
+        <Link to="/menuCuidador"> <button disabled = { !correoValido || !buscando || !fechaPrueba || !puntajePrueba || puntajePrueba > 10 || puntajePrueba < 0 } onClick={submitPrueba}> Registrar prueba  </button> </Link> 
         
          </div>
 

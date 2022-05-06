@@ -5,6 +5,28 @@ import Logo from "./logo.png";
 
 
 export default function RegistroDoc() {
+
+  class Botoncito extends React.Component{
+    state = {
+      showMessage: false
+    }
+    onButtonClickHandler = () => {
+     this.setState({showMessage: true});
+    };
+  
+    render(){ 
+      return(<div className="App">
+       {this.state.showMessage} 
+      
+       <Link to ="/"> <button onClick={this.onButtonClickHandler}> Iniciar Sesión</button> </Link>
+       
+      
+      </div>);
+  
+    }
+  }
+
+
     const [idDoctor, setIdDoctor] = useState("");
     const [idPacientes, setIdPacientes] = useState("");
     const [nombreDoctor, setNombreDoctor] = useState("");
@@ -28,7 +50,11 @@ export default function RegistroDoc() {
         }).then(()=>{
           alert("successful insert");
           
-        })
+        });
+
+     
+
+
     };
 
     useEffect(() => {
@@ -38,6 +64,15 @@ export default function RegistroDoc() {
       });
   
     }, []);
+
+
+
+
+    
+
+
+
+
  
   return (
     
@@ -52,19 +87,21 @@ export default function RegistroDoc() {
         }}
       >
 
-     
-<body> <Link to="/registro"> <button className="izquierda"> Volver a registro </button> </Link> </body>
+      <body> <Link to="/registro"> <button className="izquierda"> Volver a registro </button> </Link> </body>
          
       </nav>
-      <Outlet /> 
+      <Outlet />
       <br></br>
 
-      <h1 className="Subtitulos"> REGISTRO DE DOCTORES </h1>
+      <h1 className="Subtitulos"> REGISTRO DE DOCTOR </h1>
+      <label>No puede dejar ningún campo vacío</label>
+       
+
        <label> Nombre del doctor: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
          setNombreDoctor(e.target.value)}}/>
         
-        <label> Apellidos : </label>
+        <label> Apellidos: </label>
        <input type="text" apellidosDoctor="apellidos" onChange= {(e) => {
          setApellidosDoctor(e.target.value)}}/>
 
@@ -76,13 +113,19 @@ export default function RegistroDoc() {
        <input type="text" correo="correo" onChange= {(e) => {
          setCorreoD(e.target.value)}}/>
 
-        <label> Contraseña: </label>
+        <label> Contraseña: (Debe tener más de 8 caracteres)</label>
        <input type="text" contraseña="contraseña" onChange= {(e) => {
          setContraseñaD(e.target.value)}}/>
 
         <br></br>
+
+       
+       
+
        <br></br>
-       <Link to="/"> <button onClick={submmitDoctor}> Crear Cuenta </button> </Link> 
+       <Link to ="/"> <button disabled={!nombreDoctor || !apellidosDoctor || !organizacion || !correo  || !contraseña || (contraseña.length < 8) }  onClick={submmitDoctor}> Crear cuenta </button> </Link>
+       
+      
 
        
     </div>

@@ -17,6 +17,9 @@ import RegistroPacienteCuidador from "./routes/registroPacienteCuidador";
 import PruebaDoctor from "./routes/pruebaUnityDoctor";
 import PruebaCuidador from "./routes/pruebaUnityCuidador";
 import VerDoctores from "./routes/verDoctores";
+import VerPruebas from "./routes/verPruebas";
+
+
 
 //import Prueba from "./routes/pruebaUnity"
 
@@ -74,6 +77,9 @@ render(
 </Route>
 <Route path="/menuDoctor/verDoctores" element={<VerDoctores />}>
 </Route>
+<Route path="/menuDoctor/verPruebas" element={<VerPruebas />}>
+</Route>
+
 
     </Routes>
 </BrowserRouter>,rootElement);

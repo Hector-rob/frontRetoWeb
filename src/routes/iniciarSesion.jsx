@@ -61,13 +61,13 @@ export default function Registro(){
      
 
        {listaCorreoDoc.map((val)=> {
-         if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
+         if (val.correo === correoRegistro && correoRegistro != "" && val.contraseña === contraseñaRegistro && contraseñaRegistro != ""){
           return <Link to="/menuDoctor"> <button> Iniciar Sesión </button> </Link>
          } 
        })}
 
       {listaCorreoCui.map((val)=> {
-         if (val.correo === correoRegistro && val.contraseña === contraseñaRegistro){
+         if (val.correo === correoRegistro && correoRegistro != "" && val.contraseña === contraseñaRegistro && contraseñaRegistro != ""){
           return <Link to="/menuCuidador"> <button> Iniciar Sesión </button> </Link>
          
          }

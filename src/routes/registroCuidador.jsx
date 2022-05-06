@@ -53,7 +53,6 @@ export default function RegistroCuidador() {
       >
 
       <body> <Link to="/registro"> <button className="izquierda"> Volver a registro </button> </Link> </body>
-
          
       </nav>
       <Outlet />
@@ -62,35 +61,55 @@ export default function RegistroCuidador() {
 
 
       <h1 className="Subtitulos"> REGISTRO DE CUIDADOR </h1>
+
+      <label>No puede dejar ningún campo vacío</label>
       
+
        <label> Nombre del cuidador: </label>
        <input type="text" nombreCuidador="nombre" onChange= {(e) => {
-         setNombreCuidador(e.target.value)}}/>
+         if (e.target.value != ""){
+          setNombreCuidador(e.target.value)}
+        console.log(e.target.value)}
+        }/>
         
         <label> Apellidos cuidador: </label>
        <input type="text" apellidosCuidador="apellidos cuidador" onChange= {(e) => {
-         setApellidosCuidador(e.target.value)}}/>
+         if (e.target.value != ""){
+          setApellidosCuidador(e.target.value)}}
+        }/>
 
         <label> Teléfono cuidador: </label>
        <input type="text" telefonoCuidador="teléfono" onChange= {(e) => {
-         setTelefonoCuidador(e.target.value)}}/>
+         if (e.target.value != ""){
+          setTelefonoCuidador(e.target.value)}}
+        }/>
 
         <label> Relación con el paciente: </label>
        <input type="text" relacionPaciente="relación" onChange= {(e) => {
-         setRelacionPaciente(e.target.value)}}/>
+         if (e.target.value != ""){
+          setRelacionPaciente(e.target.value)}}
+        }/>
 
         <label> Correo: </label>
        <input type="text" correo="correo" onChange= {(e) => {
-         setCorreo(e.target.value)}}/>
+         if (e.target.value != ""){
+          setCorreo(e.target.value)}}
+        }/>
 
-        <label> contraseña: </label>
+        <label> Contraseña: (Debe tener más de 8 caracteres)</label>
        <input type="text" contraseña="contraseña" onChange= {(e) => {
-         setContraseña(e.target.value)}}/>
+         if (e.target.value != ""){
+           setContraseña(e.target.value)}}
+         }/>
+         
+
+         <br></br>
 
        <br></br>
-       <br></br>
+
+       
      
-       <Link to="/"> <button onClick={submitCuidador} > Crear Cuenta </button> </Link> 
+       <Link to="/"> <button disabled={!nombreCuidador || !apellidosCuidador || !telefonoCuidador || !relacionPaciente || !correo || !contraseña || (contraseña.length < 8) } onClick={submitCuidador}> Crear cuenta </button> </Link> 
     </div>
     
   );

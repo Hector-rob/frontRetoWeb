@@ -22,32 +22,33 @@ export default function MenuDoctor() {
          
       </nav>
 
-      <p className="Titulos">Menú de doctor</p>
+      <br></br>
 
       <Outlet />
+
+      <h1 className="Titulos">MENÚ DE DOCTOR</h1>
+
+      <br></br>
       
-
-      <Link to="/menuDoctor/registrarPaciente"> <button className="buttonMenu"> Registrar paciente </button> </Link> {" "}
-      <br></br>
-
-      <Link to="/menuDoctor/verPacientes"> <button className="buttonMenu"> Ver pacientes </button> </Link> {" "}
-      <br></br>
+      <center> 
+      <Link to="/menuDoctor/registrarPaciente"> <button className="buttonMenu"> Registrar paciente </button> </Link> {" "} <Link to="/menuDoctor/verPacientes"> <button className="buttonMenu"> Ver pacientes </button> </Link> {" "}
+    
       
       <Link to="/menuDoctor/verCuidadores"> <button className="buttonMenu"> Ver cuidadores </button> </Link> {" "}
-      <br></br>
 
       <Link to="/menuDoctor/verDoctores"> <button className="buttonMenu"> Ver doctores </button> </Link> {" "}
-      <br></br>
+     
+      
 
       <Link to="/pruebaDoctor"> <button className="buttonMenu"> Realizar prueba </button> </Link> {" "}
+      <Link to="/menuDoctor/verPruebas"> <button className="buttonMenu"> Ver Pruebas </button> </Link> {" "}
+
+      </center>
+
+      <br></br>
       <br></br>
 
-      
-
-
-      
-
-      <Link to="/"> <button className="buttonMenuCerrarSesion"> Cerrar sesión </button> </Link> {" "}
+      <Link to="/"> <button className="buttonCerrarSesion"> Cerrar sesión </button> </Link> {" "}
 
 
      

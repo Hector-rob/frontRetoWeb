@@ -20,18 +20,24 @@ export default function MenuCuidador() {
       >
          
       </nav>
+      <br></br>
 
-      <p className="Titulos">Menú de cuidador</p>
+      <h1 className="Titulos">MENÚ DE CUIDADOR</h1>
 
       <Outlet />
       
       <br></br>
+      <center> 
       <Link to="/menuCuidador/registrarPaciente"> <button className="buttonMenu"> Registrar paciente </button> </Link> {" "}
-      <br></br>
+      
       <Link to="/pruebaCuidador"> <button className="buttonMenu"> Realizar prueba </button> </Link> {" "}
+
+      </center>
       <br></br>
 
       <Link to="/"> <button className="buttonCerrarSesion"> Cerrar sesión </button> </Link> {" "}
+
+      
 
       </div>
     );

@@ -104,8 +104,8 @@ export default function RegistroPacienteDoc() {
         }}
       >
 
+      
       <body> <Link to="/menuDoctor"> <button className="izquierda"> Volver a menú </button> </Link> </body>
-
      
          
       </nav>
@@ -114,6 +114,8 @@ export default function RegistroPacienteDoc() {
 
 
       <h1 className="Titulos"> REGISTRO DE PACIENTE </h1>
+
+      <label>No puede dejar ningún campo vacío (Excepto Padecimientos del paciente)</label>
       
       
        <label> Nombre del paciente: </label>
@@ -141,7 +143,7 @@ export default function RegistroPacienteDoc() {
        <input type="text" telefonoContacto="teléfono" onChange= {(e) => {
          setTelefonoContacto(e.target.value)}}/>
 
-        <label> Sexo ('F' para femenino, 'M' para masculino): </label>
+        <label> Sexo ('F' para femenino, 'M' para masculino, 'I' para indefinido): </label>
        <input type="text" sexo="sexo" onChange= {(e) => {
          setSexo(e.target.value)}}/>
 
@@ -155,8 +157,7 @@ export default function RegistroPacienteDoc() {
 
         <br></br>
 
-       <button onClick={submitPaciente} > Submit </button>
-
+        <Link to="/menuDoctor"> <button  disabled={!nombrePaciente || !apellidoP || !apellidoM || !telefonoContacto  ||  !sexo ||  !fechaNacimiento || !quejaMemoria  || (quejaMemoria != (0 || 1)) }onClick={submitPaciente}> Registrar paciente  </button> </Link> 
  
 
 

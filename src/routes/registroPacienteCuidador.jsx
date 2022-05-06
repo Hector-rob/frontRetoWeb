@@ -4,6 +4,10 @@ import { Outlet, Link, matchPath } from "react-router-dom";
 import './style.css';
 import Logo from "./logo.png";
 
+
+
+
+
 export default function RegistroPacienteCuidador() {
 
   // Para pacientes
@@ -17,6 +21,9 @@ export default function RegistroPacienteCuidador() {
   const [sexo, setSexo] = useState("");
   const [fechaNacimiento, setFechaNacimiento] = useState("");
   const [quejaMemoria, setQuejaMemoria] = useState("");
+
+
+  const [buscando, setBuscando] = useState("");
 
 
   const [pacienteLista, setPacienteLista] = useState([]);
@@ -100,8 +107,8 @@ export default function RegistroPacienteCuidador() {
         }}
       >
 
-      <body> <Link to="/menuCuidador"> <button className="izquierda"> Volver a menú </button> </Link> </body>
 
+      <body> <Link to="/menuCuidador"> <button className="izquierda"> Volver a menú </button> </Link> </body>
      
          
       </nav>
@@ -110,6 +117,8 @@ export default function RegistroPacienteCuidador() {
 
 
       <h1 className="Titulos"> REGISTRO DE PACIENTE </h1>
+
+      <label>No puede dejar ningún campo vacío (Excepto Padecimientos del paciente)</label>
   
        <label> Nombre del paciente: </label>
        <input type="text" nombrePaciente="nombre" onChange= {(e) => {
@@ -123,10 +132,27 @@ export default function RegistroPacienteCuidador() {
        <input type="text" apellidoM="apellido materno" onChange= {(e) => {
          setApellidoM(e.target.value)}}/>
 
-        <label> ID del responsable: </label>  
-       <input type="text" responsable="responsable" onChange= {(e) => {
-         setResponsable(e.target.value)}}/> <p><Botoncito></Botoncito> </p>
+        <label> Ingrese su correo de cuidador (Debe ser su correo registrado): </label>
+        <input type="text" buscar="buscar" onChange= {(e) => {
+         setBuscando(e.target.value)}}/>
+         {idCuidadorLista.map((val)=> {
+           var id = 0;
+
+           if (buscando === val.correo){
+             id = val.idCuidador;
+          
+            return <div> 
+
+             <label> ID de cuidador: </label>  
+              <input type="text" value = {id} responsable="responsable" onChange= {(e) => {
+                setResponsable(e.target.value)}}/>
+            </div>
+           }
+          })}
+
        
+         
+
 
         <label> Padecimientos del paciente: </label>
        <input type="text" padecimientos="padecimientos" onChange= {(e) => {
@@ -136,7 +162,7 @@ export default function RegistroPacienteCuidador() {
        <input type="text" telefonoContacto="teléfono" onChange= {(e) => {
          setTelefonoContacto(e.target.value)}}/>
 
-        <label> Sexo ('F' para femenino, 'M' para masculino): </label>
+        <label> Sexo ('F' para femenino, 'M' para masculino, 'I' para indefinido): </label>
        <input type="text" sexo="sexo" onChange= {(e) => {
          setSexo(e.target.value)}}/>
 
@@ -149,8 +175,8 @@ export default function RegistroPacienteCuidador() {
          setQuejaMemoria(e.target.value)}}/>
 
         <br></br>
-       <Link to="/menuCuidador"> <button onClick={submitPaciente} > Registrar Paciente </button> </Link> 
-
+     
+       <Link to="/menuCuidador"> <button  disabled={!nombrePaciente || !apellidoP || !apellidoM || !telefonoContacto  ||  !sexo ||  !fechaNacimiento || !quejaMemoria  || (quejaMemoria != (0 || 1)) }onClick={submitPaciente}> Registrar paciente  </button> </Link> 
 
  
 
