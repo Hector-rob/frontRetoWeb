@@ -16,7 +16,7 @@ export default function PruebaCuidador(){
 
   const [idPrueba, setIdPrueba] = useState("");
   const [pacientePrueba, setPacientePrueba] = useState("");
-  const [idAplicadorCuidador, setAplicadorCuidador] = useState(""); //este se cambia para doctor
+  const [idAplicadorCuidador, setAplicadorCuidador] = useState(""); //este se cambia para doctor, ESTE ERA USE STATE
   const [idAplicadorDoctor, setAplicadorDoctor] = "1";
   const [fechaPrueba, setFechaPrueba] = useState("");
   const [puntajePrueba, setPuntajePrueba] = useState("");

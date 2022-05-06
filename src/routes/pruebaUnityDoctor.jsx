@@ -175,7 +175,7 @@ export default function PruebaDoctor(){
             return <div> 
 
             <label> ID de doctor: </label>
-              <input type="text" value = {id} idcuidador="idcuidador" onChange= {(e) => {
+              <input type="text" value = {val.idDoctor} idcuidador="idcuidador" onChange= {(e) => {
                 setAplicadorDoctor(e.target.value)}}/>
 
 

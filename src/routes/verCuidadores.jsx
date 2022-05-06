@@ -76,7 +76,7 @@ export default function VerCuidadores() {
 
          return <div> 
            <hr />
-           <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} | Apellidos: {val.apellidosCuidador} | Teléfono: {val.telefonoCuidador} | Relación con paciente: {val.relacionPaciente} | Correo: {val.correo} | contraseña: {val.contraseña}</h3>
+           <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} | Apellidos: {val.apellidosCuidador} | Teléfono: {val.telefonoCuidador}</h3>
          <body> Pacientes en su cuidado:</body>
          {pacienteLista.map((val2)=> {
           if (val.idCuidador == val2.responsable){
