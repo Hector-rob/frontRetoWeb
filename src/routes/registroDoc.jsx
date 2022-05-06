@@ -80,11 +80,8 @@ export default function RegistroDoc() {
          setContraseñaD(e.target.value)}}/>
 
         <br></br>
-
-       <button onClick={submmitDoctor}> Submit </button>
-
        <br></br>
-       <Link to="/"> <button> Iniciar Sesión </button> </Link> 
+       <Link to="/"> <button onClick={submmitDoctor}> Crear Cuenta </button> </Link> 
 
        
     </div>

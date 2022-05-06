@@ -117,27 +117,38 @@ export default function PruebaCuidador(){
         <input type="text" buscar="buscar" onChange= {(e) => {
          setBuscando(e.target.value)}}/>
          {idCuidadorLista.map((val)=> {
+          var id = 0;
            if (buscando === val.correo){
-          
-            return <p> <center> Su ID del cuidador es: {val.idCuidador}</center> </p>
+             id = val.idCuidador;
+            return <div> <p> <center> Su ID del cuidador es: {id }</center> </p>
+            <label> ID de cuidador: </label>
+            <input type="text" value = {id} idcuidador="dcuidador" onChange= {(e) => {
+              setAplicadorCuidador(id)}}/>
+
+
+        <label> Ingrese ID del paciente relacionado: </label>
+       <input type="text" idpaciente="id" onChange= {(e) => {
+         
+         setPacientePrueba(e.target.value)}}/>
+         <h1>IDs de pacientes relacionados </h1>
+         {pacienteLista.map((val)=> {
+           if (val.responsable == id){
+            return <p> <center> ID de paciente: {val.idPaciente} | Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}</center> </p>
+           }
+          })}
+
+
+            </div>
+
             
            }
           })}
+          
 
 
-        <label> ID de cuidador: </label>
-       <input type="text" idcuidador="idcuidador" onChange= {(e) => {
-         setAplicadorCuidador(e.target.value)}}/>
          
 
-        <label> ID del paciente relacionado: </label>
-       <input type="text" idpaciente="id" onChange= {(e) => {
-         setPacientePrueba(e.target.value)}}/>
-         {pacienteLista.map((val)=> {
-           if (val.responsable == idAplicadorCuidador){
-            return <p> <center> Su paciente con el ID |{val.idPaciente}| es {val.nombrePaciente} {val.apellidoP} {val.apellidoM}</center> </p>
-           }
-          })}
+      
         
 
          <label> Fecha de prueba (AAAA-MM-DD): </label>
@@ -153,7 +164,8 @@ export default function PruebaCuidador(){
          setComentariosExtra(e.target.value)}}/>
 
         <br></br>
-        <button onClick={submitPrueba} > Submit </button>
+  
+        <Link to="/menuCuidador"> <button onClick={submitPrueba}> Registrar prueba  </button> </Link> 
         
          </div>
 

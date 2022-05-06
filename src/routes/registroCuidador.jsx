@@ -86,13 +86,10 @@ export default function RegistroCuidador() {
        <input type="text" contraseña="contraseña" onChange= {(e) => {
          setContraseña(e.target.value)}}/>
 
-         <br></br>
-
-       <button onClick={submitCuidador}> Submit </button>
-
+       <br></br>
        <br></br>
      
-       <Link to="iniciarSesion"> <button> Iniciar Sesión </button> </Link> 
+       <Link to="/"> <button onClick={submitCuidador} > Crear Cuenta </button> </Link> 
     </div>
     
   );

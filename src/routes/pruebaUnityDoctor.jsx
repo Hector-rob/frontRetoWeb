@@ -93,11 +93,15 @@ export default function PruebaDoctor(){
   
     render(){ 
       return(<div className="App">
+        
+       
        {this.state.showMessage && <p>   {pacienteLista.map((val)=> {
-            return <p> <center> ID del paciente: {val.idPaciente} | Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}</center> </p>
+          
+            return <div> <p> <center> ID del paciente: {val.idPaciente} | Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}</center> </p></div>
           })}
         </p>}
-        <button onClick={this.onButtonClickHandler}>Ver pacientes</button>
+        <button onClick={this.onButtonClickHandler}>Ver lista de pacientes</button>
+        
       </div>);
   
     }
@@ -147,23 +151,26 @@ export default function PruebaDoctor(){
         <input type="text" buscar="buscar" onChange= {(e) => {
          setBuscando(e.target.value)}}/>
          {doctorLista.map((val)=> {
+           var id = 0;
            if (buscando === val.correo){
+             id = val.idDoctor;
         
-            return <p> <center> Su ID de doctor es: {val.idDoctor}</center> </p>
+            return <div> 
+
+            <label> ID de doctor: </label>
+              <input type="text" value = {id} idcuidador="idcuidador" onChange= {(e) => {
+                setAplicadorDoctor(e.target.value)}}/>
+
+
+                <label> ID del paciente: </label> 
+              <input type="text" idpaciente="id" onChange= {(e) => {
+                setPacientePrueba(e.target.value)}}/><br></br><Botoncito></Botoncito>
+
+            </div>
            }
           })}
 
-        <label> ID de doctor: </label>
-       <input type="text" idcuidador="idcuidador" onChange= {(e) => {
-         setAplicadorDoctor(e.target.value)}}/>
          
-
-        <label> ID del paciente: </label> 
-       <input type="text" idpaciente="id" onChange= {(e) => {
-         setPacientePrueba(e.target.value)}}/><br></br><Botoncito></Botoncito>
-
-    
-        
 
          <label> Fecha de prueba (AAAA-MM-DD): </label>
        <input type="text" fecha="fecha" onChange= {(e) => {
@@ -178,7 +185,7 @@ export default function PruebaDoctor(){
          setComentariosExtra(e.target.value)}}/>
 
         <br></br>
-        <button onClick={submitPrueba} > Submit </button>
+        <Link to="/menuDoctor"> <button onClick={submitPrueba}> Registrar prueba  </button> </Link> 
         
          </div>
 

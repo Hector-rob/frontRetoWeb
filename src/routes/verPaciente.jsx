@@ -62,6 +62,58 @@ export default function RegistroPaciente() {
   }, []);
 
 
+  class Botoncito extends React.Component{
+    state = {
+      showMessage: false
+    }
+    onButtonClickHandler = () => {
+     this.setState({showMessage: true});
+    };
+  
+    render(){ 
+      return(<div className="App">
+        
+       
+       {this.state.showMessage && <p>    {pacienteLista.map((val)=> {
+            if(val.quejaMemoria === 1){
+                val.quejaMemoria = "Sí";
+            }
+            else if (val.quejaMemoria === 0){
+                val.quejaMemoria = "No";
+            }
+            if(val.nombrePaciente.includes(buscando) || val.apellidoP === buscando || val.apellidoM === buscando){
+                return <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
+                <p> ID del paciente: {val.idPaciente}</p>
+                <p> Teléfono de contacto: {val.telefonoContacto}</p>
+                <p> Padecimientos: {val.padecimientos}</p>
+                <p> Sexo: {val.sexo}</p>
+                <p> Fecha de nacimiento: {val.fechaNacimiento}</p>
+                <p> Queja de memoria: {val.quejaMemoria}</p>
+
+                {idCuidadorLista.map((val2)=> {
+                  if (val.responsable == val2.idCuidador){
+                    return <p> ID de responsable: {val.responsable} | Nombre de responsable: {val2.nombreCuidador} {val2.apellidosCuidador}</p>
+                  }
+                 })}
+
+
+
+
+                 </h3>
+            }
+            else {
+                
+            }
+        })}
+        </p>}
+        <button onClick={this.onButtonClickHandler}>Buscar paciente</button>
+        
+      </div>);
+  
+    }
+  }
+
+
 
   return (
     <div className="App">
@@ -86,46 +138,16 @@ export default function RegistroPaciente() {
       
       <h1 className="Titulos"> BUSCAR PACIENTE </h1>
    
-       <label> Nombre a buscar: </label>
+       <label> Ingrese paciente a buscar (nombre o apellido): </label>
        <input type="text" name="elbuscando" onChange= {(e) => {
          setBuscando(e.target.value)}}/>
 
         <br></br>
-        <button> Buscar </button>
+        <Botoncito> Buscar </Botoncito>
 
         
 
-        {pacienteLista.map((val)=> {
-            if(val.quejaMemoria === 1){
-                val.quejaMemoria = "Sí";
-            }
-            else if (val.quejaMemoria === 0){
-                val.quejaMemoria = "No";
-            }
-            if(val.nombrePaciente === buscando || val.apellidoP === buscando || val.apellidoM === buscando){
-                return <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
-                <p> ID del paciente: {val.idPaciente}</p>
-                <p> Teléfono de contacto: {val.telefonoContacto}</p>
-                <p> Padecimientos: {val.padecimientos}</p>
-                <p> Sexo: {val.sexo}</p>
-                <p> Fecha de nacimiento: {val.fechaNacimiento}</p>
-                <p> Queja de memoria: {val.quejaMemoria}</p>
-
-                {idCuidadorLista.map((val2)=> {
-                  if (val.responsable == val2.idCuidador){
-                    return <p> ID de responsable: {val.responsable} | Nombre de responsable: {val2.nombreCuidador} {val2.apellidosCuidador}</p>
-                  }
-                 })}
-
-
-
-
-                 </h3>
-            }
-            else {
-                
-            }
-        })}
+       
         <br></br>
 
        
@@ -154,10 +176,7 @@ export default function RegistroPaciente() {
           val.quejaMemoria = "No";
         }
 
-         return <h3> ID del paciente: {val.idPaciente} | Nombre del paciente: {val.nombrePaciente} 
-         | Apellidos: {val.apellidoP}  {val.apellidoM} | Padecimientos: {val.padecimientos} | Teléfono de contacto: {val.telefonoContacto} | Sexo: {val.sexo}
-         | Fecha de nacimiento: {val.fechaNacimiento} | Queja de memoria: {val.quejaMemoria}</h3>
-         
+         return <h3> ID del paciente: {val.idPaciente} | Nombre del paciente: {val.nombrePaciente} | Apellidos: {val.apellidoP}  {val.apellidoM} | Padecimientos: {val.padecimientos} | Teléfono de contacto: {val.telefonoContacto} | Sexo: {val.sexo} | Fecha de nacimiento: {val.fechaNacimiento} | Queja de memoria: {val.quejaMemoria}</h3>
        })}
 
        

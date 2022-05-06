@@ -152,8 +152,8 @@ export default function RegistroPacienteCuidador() {
          setQuejaMemoria(e.target.value)}}/>
 
         <br></br>
+       <Link to="/menuCuidador"> <button onClick={submitPaciente} > Registrar Paciente </button> </Link> 
 
-       <button onClick={submitPaciente} > Submit </button>
 
  
 

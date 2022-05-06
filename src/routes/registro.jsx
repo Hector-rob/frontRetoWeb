@@ -32,7 +32,7 @@ export default function Registro() {
         <Link to="/registro/cuidador"> <button className="buttonMenu"> Registrarse como cuidador </button> </Link> {" "}
         
         <br></br>
-        <Link to="/"> <button className="buttonMenu"> Ya tengo una cuenta </button> </Link> {" "}
+        <Link to="/"> <button className="buttonMenuOtro"> Ya tengo una cuenta </button> </Link> {" "}
 
         
       
