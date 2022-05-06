@@ -83,24 +83,31 @@ export default function RegistroPaciente() {
             }
             if(val.nombrePaciente != null && val.apellidoP != null && val.apellidoM != null){
             if(val.nombrePaciente.includes(buscando) || val.apellidoP.includes(buscando) || val.apellidoM.includes(buscando)){
-                return <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
+                return <div>
+                  <hr />
+                <h3> Nombre: {val.nombrePaciente} {val.apellidoP} {val.apellidoM}
                 <p> ID del paciente: {val.idPaciente}</p>
                 <p> Teléfono de contacto: {val.telefonoContacto}</p>
                 <p> Padecimientos: {val.padecimientos}</p>
                 <p> Sexo: {val.sexo}</p>
                 <p> Fecha de nacimiento: {val.fechaNacimiento}</p>
                 <p> Queja de memoria: {val.quejaMemoria}</p>
+                </h3>
 
                 {idCuidadorLista.map((val2)=> {
                   if (val.responsable == val2.idCuidador){
-                    return <p> ID de responsable: {val.responsable} | Nombre de responsable: {val2.nombreCuidador} {val2.apellidosCuidador}</p>
-                  }
+                    return <div>
+                      <body>Cuidador del paciente: </body>
+                      <body> ID: {val.responsable} | Nombre: {val2.nombreCuidador} {val2.apellidosCuidador}</body>
+                      <br />
+                  </div>}
+
                  })}
 
 
 
-
-                 </h3>
+                      </div>
+                
             }
             else {
                 
@@ -109,6 +116,7 @@ export default function RegistroPaciente() {
         })}
         </p>}
         <button onClick={this.onButtonClickHandler}>Buscar paciente</button>
+      
         
       </div>);
   
@@ -178,7 +186,23 @@ export default function RegistroPaciente() {
           val.quejaMemoria = "No";
         }
 
-         return <h3> ID del paciente: {val.idPaciente} | Nombre del paciente: {val.nombrePaciente} | Apellidos: {val.apellidoP}  {val.apellidoM} | Padecimientos: {val.padecimientos} | Teléfono de contacto: {val.telefonoContacto} | Sexo: {val.sexo} | Fecha de nacimiento: {val.fechaNacimiento} | Queja de memoria: {val.quejaMemoria}</h3>
+
+         return <div> <h3> ID del paciente: {val.idPaciente} | Nombre del paciente: {val.nombrePaciente} | Apellidos: {val.apellidoP}  {val.apellidoM} | Padecimientos: {val.padecimientos} | Teléfono de contacto: {val.telefonoContacto} | Sexo: {val.sexo} | Fecha de nacimiento: {val.fechaNacimiento} | Queja de memoria: {val.quejaMemoria} </h3>
+              <body> Cuidador del paciente:</body>
+
+            {idCuidadorLista.map((val2)=> {
+                  if (val.responsable == val2.idCuidador){
+                    return <body> ID de responsable: {val.responsable} | Nombre de responsable: {val2.nombreCuidador} {val2.apellidosCuidador} </body>
+                  }
+                 })}
+
+                 <br></br>
+                 <br></br>
+
+
+         </div>
+         
+         
        })}
 
        

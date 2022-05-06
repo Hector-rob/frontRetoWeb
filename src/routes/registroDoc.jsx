@@ -52,7 +52,7 @@ export default function RegistroDoc() {
         }}
       >
 
-      <body><Link to="/registro">| Regresar a registro |</Link></body>
+      <body><Link to="/registro"> Regresar a registro</Link></body>
          
       </nav>
       <Outlet />

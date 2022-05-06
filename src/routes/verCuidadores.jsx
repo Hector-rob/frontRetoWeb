@@ -14,6 +14,8 @@ export default function RegistroCuidador() {
   const [contraseña, setContraseña] = useState("");
 
   const [idCuidadorLista, setIdCuidadorLista] = useState([]);
+  const [pacienteLista, setPacienteLista] = useState([]);
+
 
   
  
@@ -34,6 +36,14 @@ export default function RegistroCuidador() {
     Axios.get("http://localhost:3003/verCuidadores").then((response) => {
       console.log(response.data);
       setIdCuidadorLista(response.data);
+    });
+
+  }, []);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3003/verPacientes").then((response) => {
+      console.log(response.data);
+      setPacienteLista(response.data);
     });
 
   }, []);
@@ -62,11 +72,21 @@ export default function RegistroCuidador() {
      
 
        {idCuidadorLista.map((val)=> {
-         return <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} 
-         | Apellidos: {val.apellidosCuidador} | Teléfono: {val.telefonoCuidador} | Relación con paciente: {val.relacionPaciente}
-         | Correo: {val.correo} | contraseña: {val.contraseña}</h3>
+
+         return <div> 
+           <hr />
+           <h3> ID del cuidador: {val.idCuidador} | Nombre del cuidador: {val.nombreCuidador} | Apellidos: {val.apellidosCuidador} | Teléfono: {val.telefonoCuidador} | Relación con paciente: {val.relacionPaciente} | Correo: {val.correo} | contraseña: {val.contraseña}</h3>
+         <body> Pacientes en su cuidado:</body>
+         {pacienteLista.map((val2)=> {
+          if (val.idCuidador == val2.responsable){
+            return <body> ID de paciente: {val2.idPaciente} | Nombre de paciente: {val2.nombrePaciente} {val2.apellidoP} {val2.apellidoM} </body>
+          }
+         })}
+         <br />
+         </div>
        })}
        <br></br>
+       <br />
        
     </div>
     
